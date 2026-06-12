@@ -1,0 +1,16 @@
+if SHIELD_RBW_DACTYL_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "RBW Dactyl"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_RBW_DACTYL_LEFT || SHIELD_RBW_DACTYL_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif

@@ -1,0 +1,12 @@
+file_format: "1"
+id: rbw_dactyl
+name: RBW Dactyl
+type: shield
+url: https://github.com/rbasoalto/zmk-rbw-dactyl
+requires:
+  - pro_micro
+features:
+  - keys
+siblings:
+  - rbw_dactyl_left
+  - rbw_dactyl_right

@@ -1,6 +1,6 @@
 #include "rbw_dactyl.dtsi"
 
-&default_transform {
+&rbw_dactyl_transform {
     col-offset = <7>;
 };
 

@@ -1,10 +1,11 @@
 #include <physical_layouts.dtsi>
+#include "rbw_dactyl-transform.dtsi"
 
 / {
     rbw_dactyl_physycal_layout: rbw_dactyl_physical_layout {
         compatible = "zmk,physical-layout";
         display-name = "RBW Dactyl";
-        transform = <&default_transform>;
+        transform = <&rbw_dactyl_transform>;
         kscan = <&kscan0>;
 
         keys  //                     w   h    x    y     rot    rx    ry

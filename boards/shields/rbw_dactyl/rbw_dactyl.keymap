@@ -3,9 +3,11 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define DEFAULT 0
-#define LOWER   1
-#define RAISE   2
-#define SYSTEM  3
+#define COLEMAK 1
+#define SPARE   2
+#define LOWER   3
+#define RAISE   4
+#define SYSTEM  5
 
 #define MT(layer) &mo_tog layer layer
 
@@ -35,6 +37,30 @@
             >;
         };
 
+        colemak_layer {
+            bindings = <
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
+    &trans      &trans      &kp Q       &kp W       &kp F       &kp P       &kp G                                   &kp J       &kp L       &kp U       &kp Y       &kp SEMI    &trans      &trans
+    &trans      &trans      &kp A       &kp R       &kp S       &kp T       &kp D                                   &kp H       &kp N       &kp E       &kp I       &kp O       &trans      &trans
+    &trans      &trans      &kp Z       &kp X       &kp C       &kp V       &kp B                                   &kp K       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &trans      &trans
+                                        &trans      &trans                                                                                  &trans      &trans
+                                                                &trans      &trans      &trans          &trans      &trans      &trans
+                                                                            &trans      &trans          &trans      &trans
+            >;
+        };
+
+        spare_layer {
+            bindings = <
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                                        &trans      &trans                                                                                  &trans      &trans
+                                                                &trans      &trans      &trans          &trans      &trans      &trans
+                                                                            &trans      &trans          &trans      &trans
+            >;
+        };
+
         lower_layer {
             bindings = <
     &trans      &trans      &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                                  &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &trans
@@ -61,7 +87,7 @@
 
         system_layer {
             bindings = <
-    &trans      &trans      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                        &trans      &trans      &trans      &trans      &trans      &trans      &trans
+    &trans      &trans      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                        &tog COLEMAK &trans     &trans      &trans      &trans      &trans      &trans
     &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
     &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
     &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans

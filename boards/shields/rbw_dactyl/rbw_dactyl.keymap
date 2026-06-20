@@ -7,7 +7,19 @@
 #define RAISE   2
 #define SYSTEM  3
 
+#define MT(layer) &mo_tog layer layer
+
 / {
+    behaviors {
+        mo_tog: behavior_mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&tog>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -15,21 +27,21 @@
             bindings = <
     &mo LOWER   &kp ESC     &kp N1      &kp N2      &kp N3      &kp N4      &kp N5                                  &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp EQUAL   &mo RAISE
     &kp BSLH    &kp GRAVE   &kp Q       &kp W       &kp E       &kp R       &kp T                                   &kp Y       &kp U       &kp I       &kp O       &kp P       &kp MINUS   &mo SYSTEM
-    &kp PG_UP   &kp LCTRL   &kp A       &kp S       &kp D       &kp F       &kp G                                   &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT     &kp LBKT
-    &kp PG_DN   &kp LSHIFT  &kp Z       &kp X       &kp C       &kp V       &kp B                                   &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp RSHIFT  &kp RBKT
+    &trans      &kp LCTRL   &kp A       &kp S       &kp D       &kp F       &kp G                                   &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT     &kp LBKT
+    MT(LOWER)   &kp LSHIFT  &kp Z       &kp X       &kp C       &kp V       &kp B                                   &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp RSHIFT  &kp RBKT
                                         &kp LEFT    &kp RIGHT                                                                               &kp UP      &kp DOWN
-                                                                &kp SPACE   &kp LCMD    &kp LALT        &kp RALT    &kp RCMD    &kp ENTER
-                                                                            &kp BKSP    &kp DEL         &kp BSLH    &kp TAB
+                                                                &kp SPACE   &kp BKSP    &kp DEL         &kp BSLH    &kp TAB     &kp ENTER
+                                                                            &kp LCMD    &kp LALT        &kp RALT    &kp RCMD
             >;
         };
 
         lower_layer {
             bindings = <
+    &trans      &trans      &kp F1      &kp F2      &kp F3      &kp F4      &kp F5                                  &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &trans
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &kp F12     &trans
     &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
     &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
-    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
-    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
-                                        &trans      &trans                                                                                  &trans      &trans
+                                        &kp HOME    &kp END                                                                                 &kp PG_UP   &kp PG_DN
                                                                 &trans      &trans      &trans          &trans      &trans      &trans
                                                                             &trans      &trans          &trans      &trans
             >;
@@ -40,8 +52,8 @@
     &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
     &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
     &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
-    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &trans      &trans      &trans      &trans      &trans
-                                        &trans      &trans                                                                                  &trans      &trans
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                  &trans      &trans      &kp C_MUTE  &kp C_MUTE  &kp C_BRI_UP &kp C_BRI_DN &trans
+                                        &trans      &trans                                                                                  &kp C_VOL_UP &kp C_VOL_DN
                                                                 &trans      &trans      &trans          &trans      &trans      &trans
                                                                             &trans      &trans          &trans      &trans
             >;
